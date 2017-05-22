@@ -76,7 +76,7 @@ public class ListaLinearSequencial {
 					return indice;
 				}
 			}
-			return -2; /*-2 QUANDO SE PROCURA E NÃO ACHA*/
+			return -2; /*-2 QUANDO SE PROCURA E NÃO ACHA*/ //teste
 		}
 	}
 
