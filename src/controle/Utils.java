@@ -4,6 +4,12 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Utils {
+	
+	// TODO: Verifica se o vetor já está ordenado
+	public boolean estaOrdenado(int[] vetor) {
+		
+		return true;
+	}
 
 	// Encontra o maior valor dentro do vetor
 	private int findMaxValue(int[] vector) {
