@@ -1,11 +1,13 @@
 package controle;
 
+import dominio.ListaLinearSequencial;
+
 public class Utils {
 	
 	// TODO: Verifica se o vetor já está ordenado
 	public boolean estaOrdenado(int[] vetor) {
 		
-		return true;
+		return false;
 	}
 
 	// Encontra o maior valor dentro do vetor
@@ -21,7 +23,20 @@ public class Utils {
 	    return max;
 	}
 	
-	// Algoritmo de ordenação tipo Bucket Sort
+	// Encontra o menor valor dentro do vetor
+	private int encontraMenorValor(int[] vetor) {
+	    int min = encontraMaiorValor(vetor);
+	    
+	    for (int i = 0; i < vetor.length; i++) {
+	        if ((vetor[i] < min) && vetor[i] != 0) {
+	            min = vetor[i];
+	        }
+	    }
+	    
+	    return min;
+	}
+	
+	// Todo: Algoritmo de ordenação tipo Bucket Sort
 	public int[] ordenaBucket(int[] vetor) {
 		
 		// Definição de variáveis
@@ -62,10 +77,34 @@ public class Utils {
 			}
 		}
 		
-		// Ordenando os baldes que ainda estão desordenados
+		// TODO: Ordenando os baldes que ainda estão desordenados
 		for (int i = 0; i < qtdBaldes; i++) {
 			
+			if (!estaOrdenado(baldes[i])) {
+				// Preparando um balde auxiliar
+				ListaLinearSequencial bAux = new ListaLinearSequencial(tamanhoDoBalde);
+				// Copiando os valores do balde
+				for (int j = 0; j < tamanhoDoBalde; j++) {
+					bAux.inserirElemento(baldes[i][j]);
+				}
+				
+				// Preenchendo o balde auxiliar ordenadamente
+				for (int j = 0; j < tamanhoDoBalde; j++) {
+					
+					int menorValor = encontraMenorValor(bAux.getLista());
+					
+					if (menorValor != 0)
+						baldes[i][j] = menorValor;
+					else
+						baldes[i][j] = 0;
+					
+					bAux.removeElemento(menorValor);					
+				}
+			}
+			
 		}
+		
+		// Devolvendo os itens para o vetor original
 		
 		return vetor;
 	}
