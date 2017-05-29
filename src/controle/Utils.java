@@ -7,7 +7,16 @@ public class Utils {
 	// TODO: Verifica se o vetor já está ordenado
 	public boolean estaOrdenado(int[] vetor) {
 		
-		return false;
+		int min = vetor[0];
+		
+		for (int i = 1; i < vetor.length; i++) {
+			if ((vetor[i] < min) && vetor[i] != 0)
+				return false;
+			else
+				min = vetor[i];
+		}
+		
+		return true;
 	}
 
 	// Encontra o maior valor dentro do vetor
@@ -36,7 +45,7 @@ public class Utils {
 	    return min;
 	}
 	
-	// Todo: Algoritmo de ordenação tipo Bucket Sort
+	// Algoritmo de ordenação tipo Bucket Sort
 	public int[] ordenaBucket(int[] vetor) {
 		
 		// Definição de variáveis
@@ -81,17 +90,27 @@ public class Utils {
 		for (int i = 0; i < qtdBaldes; i++) {
 			
 			if (!estaOrdenado(baldes[i])) {
+				
 				// Preparando um balde auxiliar
 				ListaLinearSequencial bAux = new ListaLinearSequencial(tamanhoDoBalde);
+				
 				// Copiando os valores do balde
 				for (int j = 0; j < tamanhoDoBalde; j++) {
 					bAux.inserirElemento(baldes[i][j]);
 				}
 				
-				// Preenchendo o balde auxiliar ordenadamente
+				// Preenchendo o balde ordenadamente
 				for (int j = 0; j < tamanhoDoBalde; j++) {
 					
-					int menorValor = encontraMenorValor(bAux.getLista());
+					// Correção de corrida para utilização da ListaLinearSequancial como auxiliar
+					int[] aux = new int[tamanhoDoBalde];
+					
+					for (int k = 0; k < bAux.getUltimaPos() +1; k++) {
+						aux[k] = bAux.getLista()[k];
+					}
+					
+					// Ordem crescente
+					int menorValor = encontraMenorValor(aux);
 					
 					if (menorValor != 0)
 						baldes[i][j] = menorValor;
@@ -105,8 +124,16 @@ public class Utils {
 		}
 		
 		// Devolvendo os itens para o vetor original
+		ListaLinearSequencial bAux = new ListaLinearSequencial(tamanhoDoVetor);
 		
-		return vetor;
+		for (int i = 0; i < qtdBaldes; i++) {
+			for (int j = 0; j < tamanhoDoBalde; j++) {
+				if (baldes[i][j] != 0)
+					bAux.inserirElemento(baldes[i][j]);
+			}
+		}
+		
+		return bAux.getLista();
 	}
 
 }
