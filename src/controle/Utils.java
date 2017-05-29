@@ -1,12 +1,10 @@
 package controle;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Utils {
 
-	private int maxValue;
-	private int vectorSize;
-	private int bucketSize;
-	private int numBucket;
-	
 	// Encontra o maior valor dentro do vetor
 	private int findMaxValue(int[] vector) {
 	    int max = vector[0];
@@ -22,6 +20,11 @@ public class Utils {
 	// Algoritmo de ordenação tipo Bucket Sort
 	public int[] ordenaBucket(int[] vector) {
 		
+		int maxValue;
+		int vectorSize;
+		int bucketSize;
+		int numBucket;
+		
 		maxValue	= findMaxValue(vector); 
 		vectorSize	= vector.length;
 		bucketSize	= Integer.parseInt(Math.ceil(maxValue / vectorSize)+"");
@@ -29,9 +32,10 @@ public class Utils {
 			bucketSize++;
 		numBucket	= Integer.parseInt(Math.ceil(maxValue / bucketSize)+"");
 		
-		int[] bucket = new int[bucketSize];
+		// Cria a matriz de baldes
+		int[][] buckets = new int[numBucket][bucketSize];
 		
-		for (int i = 0; i < numBucket; i++) {
+		for (int i = 0; i < vector.length; i++) {
 			
 		}
 		
