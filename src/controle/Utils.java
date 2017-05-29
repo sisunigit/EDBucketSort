@@ -1,22 +1,19 @@
 package controle;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 public class Utils {
 	
-	// TODO: Verifica se o vetor já está ordenado
+	// TODO: Verifica se o vetor jï¿½ estï¿½ ordenado
 	public boolean estaOrdenado(int[] vetor) {
 		
 		return true;
 	}
 
 	// Encontra o maior valor dentro do vetor
-	private int findMaxValue(int[] vector) {
-	    int max = vector[0];
-	    for (int i = 0; i < vector.length; i++) {
-	        if (vector[i] > max) {
-	            max = vector[i];
+	private int encontraMaiorValor(int[] vetor) {
+	    int max = vetor[0];
+	    for (int i = 0; i < vetor.length; i++) {
+	        if (vetor[i] > max) {
+	            max = vetor[i];
 	        }
 	    }
 	    
@@ -24,28 +21,28 @@ public class Utils {
 	}
 	
 	// Algoritmo de ordenaÃ§Ã£o tipo Bucket Sort
-	public int[] ordenaBucket(int[] vector) {
+	public int[] ordenaBucket(int[] vetor) {
 		
-		int maxValue;
-		int vectorSize;
-		int bucketSize;
-		int numBucket;
+		int maiorValor;
+		int tamanhoDoVetor;
+		int tamanhoDoBalde;
+		int qtdBaldes;
 		
-		maxValue	= findMaxValue(vector); 
-		vectorSize	= vector.length;
-		bucketSize	= Integer.parseInt(Math.ceil(maxValue / vectorSize)+"");
-		if (bucketSize >= vectorSize) 
-			bucketSize++;
-		numBucket	= Integer.parseInt(Math.ceil(maxValue / bucketSize)+"");
+		maiorValor	= encontraMaiorValor(vetor); 
+		tamanhoDoVetor	= vetor.length;
+		tamanhoDoBalde	= Integer.parseInt(Math.ceil(maiorValor / tamanhoDoVetor)+"");
+		if (tamanhoDoBalde >= tamanhoDoVetor) 
+			tamanhoDoBalde++;
+		qtdBaldes	= Integer.parseInt(Math.ceil(maiorValor / tamanhoDoBalde)+"");
 		
 		// Cria a matriz de baldes
-		int[][] buckets = new int[numBucket][bucketSize];
+		int[][] baldes = new int[qtdBaldes][tamanhoDoBalde];
 		
-		for (int i = 0; i < vector.length; i++) {
+		for (int i = 0; i < vetor.length; i++) {
 			
 		}
 		
-		return vector;
+		return vetor;
 	}
 
 }
