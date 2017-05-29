@@ -4,7 +4,7 @@ import dominio.ListaLinearSequencial;
 
 public class Utils {
 	
-	// TODO: Verifica se o vetor já está ordenado
+	// Verifica se o vetor já está ordenado
 	public boolean estaOrdenado(int[] vetor) {
 		
 		int min = vetor[0];
@@ -86,7 +86,7 @@ public class Utils {
 			}
 		}
 		
-		// TODO: Ordenando os baldes que ainda estão desordenados
+		// Ordenando os baldes que ainda estão desordenados
 		for (int i = 0; i < qtdBaldes; i++) {
 			
 			if (!estaOrdenado(baldes[i])) {

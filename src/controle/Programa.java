@@ -24,22 +24,22 @@ public class Programa {
 			System.out.println("4 - Exibir Lista");
 			System.out.println("5 - Sair");
 
-			System.out.println("\nDigite o n˙mero referente a opÁ„o desejada: ");
+			System.out.println("\nDigite o n√∫mero referente a op√ß√£o desejada: ");
 			opcMenu = entrada.nextInt();
 			boolean resp;
 			int caracter;
 
 			switch (opcMenu) {
 			case 1:
-				System.out.println("Solicitou InserÁ„o");
+				System.out.println("Solicitou Inser√ß√£o");
 
 				System.out.println("\nDigite o caracter a ser armazenado: ");
 				caracter = entrada.nextInt();
 
 				resp = listaLinearSeq.inserirElemento(caracter);
-				System.out.println("InserÁ„o realizada! selecione exibir para vÍr o conte˙do inserido");
+				System.out.println("Inser√£o realizada! selecione exibir para ver o conte√∫do inserido");
 				if (!resp) {
-					System.out.println("InserÁ„o n„o realizada! Lista Cheia!");
+					System.out.println("Inser√£o nÔøΩo realizada! Lista Cheia!");
 				}
 				break;
 			case 2:
@@ -55,19 +55,19 @@ public class Programa {
 				if (indice > -1) {
 					System.out.println(listaLinearSeq.getLista()[indice]);
 				} else if (indice == -2) {
-					System.out.println("Caracter n„o encontrado.");
+					System.out.println("Caracter n√£o encontrado.");
 				} else {
 					System.out.println("Lista vazia.");
 				}
 				break;
 			case 3:
-				System.out.println("Solicitou Exclus„o");
+				System.out.println("Solicitou Exclus√£o");
 				System.out.println("\nDigite o caracter a ser removido: ");
 				caracter = entrada.nextInt();
 				resp = listaLinearSeq.removeElemento(caracter);
 
 				if (!resp) {
-					System.out.println("Exclus„o n„o realizada! Lista Cheia!");
+					System.out.println("Exclus√£o n√£o realizada! Lista Cheia!");
 				}
 				break;
 			case 4:
@@ -77,13 +77,13 @@ public class Programa {
 						System.out.println(listaLinearSeq.getLista()[i]);
 					}
 				} else {
-					System.out.println("Lista Vazia! ExibiÁ„o ImpossÌvel!");
+					System.out.println("Lista Vazia! Exibi√ß√£o Imposs√≠vel!");
 				}
 				break;
 			case 5:
 				break;
 			default:
-				System.out.println("Valor Inv·lido - Fim de ExecuÁ„o!");
+				System.out.println("Valor Inv√°lido - Fim de Execu√ß√£o!");
 			}
 
 		}
