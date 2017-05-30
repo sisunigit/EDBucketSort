@@ -17,7 +17,7 @@ public class Programa {
 
 		int opcMenu = 0;
 
-		while (opcMenu < 5) {
+		while (opcMenu < 8) {
 			System.out.println("\n\n1 - Inserir Elemento");
 			System.out.println("2 - Remover Elemento");
 			System.out.println("3 - Busca Sequencial");
@@ -52,9 +52,10 @@ public class Programa {
 				caracter = entrada.nextInt();
 				resp = listaLinearSeq.removeElemento(caracter);
 				
-				if (!resp) {
-					System.out.println("Exclusão não realizada! Lista Cheia!");
-				}
+				if (resp)
+					System.out.println("Exclusão realizada!");
+				else
+					System.out.println("Exclusão não realizada!");
 				break;
 				
 			case 3:
@@ -99,7 +100,7 @@ public class Programa {
 				System.out.println("\n\n*** Exibição ***");
 				if (!listaLinearSeq.listaVazia()) {
 					for (int i = 0; i < listaLinearSeq.getUltimaPos() + 1; i++) {
-						System.out.println(listaLinearSeq.getLista()[i]);
+						System.out.print(listaLinearSeq.getLista()[i] + "|");
 					}
 				} else {
 					System.out.println("Lista Vazia! Exibição Impossível!");
@@ -108,14 +109,36 @@ public class Programa {
 				
 			case 6:
 				System.out.println("\n\n*** Ordenação Crescente ***");
-
 				
+				Utils util = new Utils();
+
+				/* Cronometrando o tempo de execução */
+				long tempoInicial = System.currentTimeMillis();
+
+				listaLinearSeq.setLista(util.ordenaBucket(listaLinearSeq.getLista(), 'c')); // execução do método
+				
+				long tempoTotal = System.currentTimeMillis() - tempoInicial;		
+				/* Fim do cronômetro */				
+				
+				System.out.println("Ordenação concluida em [" + tempoTotal + "] milissegundos");
 				
 				break;
 				
 			case 7:
 				System.out.println("\n\n*** Ordenação Decrescente ***");
 
+				Utils util2 = new Utils();
+
+				/* Cronometrando o tempo de execução */
+				long tempoInicial2 = System.currentTimeMillis();
+
+				listaLinearSeq.setLista(util2.ordenaBucket(listaLinearSeq.getLista(), 'd')); // execução do método
+				
+				long tempoTotal2 = System.currentTimeMillis() - tempoInicial2;		
+				/* Fim do cronômetro */				
+				
+				System.out.println("Ordenação concluida em [" + tempoTotal2 + "] milissegundos");
+				
 				break;
 								
 			default:

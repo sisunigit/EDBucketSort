@@ -12,7 +12,7 @@ public class testaBucketSort {
 				128,516,514,348,9862,2,47,46,13,9,174,2508,6,77,66,98,85,36,
 				811,17,59,99,18,277,26,666666,999,3,17,140,421,505,798,197,405,
 				72,14,88,25,30,5,33,274,20,700,82,80,12,13,11,10,92006,56,904,
-				25,632,94,29,54,65,195,7,170,5942,2,66,757,4,2139,142,22,9001,
+				25,632,94,29,54,65,195,7,170,5942,1,66,757,4,2139,142,22,9001,
 				365179,10001,9684,23,79,1000,95,3,4656,700,23,4821,10,7780,8
 		};
 		
@@ -53,7 +53,7 @@ public class testaBucketSort {
 		/* Cronometrando o tempo de execução */
 		long tempoInicial = System.currentTimeMillis();
 
-		vetor = util.ordenaBucket(vetor); // execução do método
+		vetor = util.ordenaBucket(vetor, 'c'); // execução do método
 		
 		long tempoTotal = System.currentTimeMillis() - tempoInicial;		
 		/* Fim do cronômetro */

@@ -46,7 +46,7 @@ public class Utils {
 	}
 	
 	// Algoritmo de ordenação tipo Bucket Sort
-	public int[] ordenaBucket(int[] vetor) {
+	public int[] ordenaBucket(int[] vetor, char ordem) {
 		
 		// Definição de variáveis
 		int maiorValor;
@@ -123,14 +123,27 @@ public class Utils {
 			
 		}
 		
-		// Devolvendo os itens para o vetor original
+		// Devolvendo os itens para o vetor original na ordem solicitada
 		ListaLinearSequencial bAux = new ListaLinearSequencial(tamanhoDoVetor);
 		
-		for (int i = 0; i < qtdBaldes; i++) {
-			for (int j = 0; j < tamanhoDoBalde; j++) {
-				if (baldes[i][j] != 0)
-					bAux.inserirElemento(baldes[i][j]);
+		if (ordem == 'c') {
+			
+			for (int i = 0; i < qtdBaldes; i++) {
+				for (int j = 0; j < tamanhoDoBalde; j++) {
+					if (baldes[i][j] != 0)
+						bAux.inserirElemento(baldes[i][j]);
+				}
 			}
+			
+		} else {
+			
+			for (int i = qtdBaldes-1; i >= 0; i--) {
+				for (int j = tamanhoDoBalde-1; j >= 0; j--) {
+					if (baldes[i][j] != 0)
+						bAux.inserirElemento(baldes[i][j]);
+				}
+			}
+			
 		}
 		
 		return bAux.getLista();
