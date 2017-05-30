@@ -110,6 +110,7 @@ public class Programa {
 				System.out.println("\n\n*** Ordenação Crescente ***");
 
 				
+				
 				break;
 				
 			case 7:
