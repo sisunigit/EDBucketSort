@@ -1,8 +1,10 @@
 package dominio;
 
+import controle.Utils;
+
 public class ListaLinearSequencial {
 	private int[] lista;
-	private int ultimaPos; // ÕNDICE DA ⁄LTIMA POSI«√O PREENCHIDA
+	private int ultimaPos; // √çNDICE DA √öLTIMA POSI√á√ÉO PREENCHIDA
 
 	public ListaLinearSequencial(int tamanho) {
 		this.lista	= new int[tamanho];
@@ -25,7 +27,7 @@ public class ListaLinearSequencial {
 		this.ultimaPos = ultimaPos;
 	}
 
-	// M…TODO PARA VERIFICAR SE A LISTA EST¡ CHEIA
+	// M√âTODO PARA VERIFICAR SE A LISTA EST√Å CHEIA
 	public boolean listaCheia() {
 		if (this.ultimaPos == lista.length - 1)
 			return true;
@@ -33,7 +35,7 @@ public class ListaLinearSequencial {
 			return false;
 	}
 
-	// M…TODO PARA VERIFICAR SE A LISTA EST¡ VAZIA
+	// M√âTODO PARA VERIFICAR SE A LISTA ESTÔøΩ VAZIA
 	public boolean listaVazia() {
 		if (this.ultimaPos == -1)
 			return true;
@@ -41,7 +43,7 @@ public class ListaLinearSequencial {
 			return false;
 	}
 
-	// INSERE "ELEMENTO" NA LISTA LINEAR SEQUENCIAL SE TIVER ESPA«O
+	// INSERE "ELEMENTO" NA LISTA LINEAR SEQUENCIAL SE TIVER ESPA√áO
 	public boolean inserirElemento(int elemento) {
 		if (listaCheia()) 
 			return false;
@@ -52,7 +54,7 @@ public class ListaLinearSequencial {
 		}
 	}
 
-	// REMOVE A PRIMEIRA OCORR NCIA DO ELEMENTO
+	// REMOVE A PRIMEIRA OCORR√äNCIA DO ELEMENTO
 	public boolean removeElemento(int elemento) {
 		if (listaVazia())
 			return false;
@@ -76,7 +78,38 @@ public class ListaLinearSequencial {
 					return indice;
 			}
 			
-			return -2; // -2 QUANDO SE PROCURA E N√O ACHA 
+			return -2; // -2 QUANDO SE PROCURA E N√ÉO ACHA 
+		}
+	}
+	
+	// BUSCAR DE FORMA BIN√ÅRIA
+	public int buscaBinaria(int elemento) {
+		Utils util = new Utils();
+
+		// Verificando ordena√ß√£o antes da busca bin√°ria
+		if (!util.estaOrdenado(lista))
+			this.setLista(util.ordenaBucket(lista, 'c'));
+		
+		if (listaVazia())
+			return -1;
+		
+		else {
+			int inicio		= 0;
+			int fim			= this.ultimaPos +1;
+			
+			while (inicio <= fim) {
+				int meio		= inicio + ((int) Math.ceil((double) (fim - inicio) / 2));
+				
+				if (elemento == this.lista[meio -1])
+					return meio -1;
+				
+				else if (elemento > this.lista[meio -1])
+					inicio = meio +1;
+				else
+					fim = meio -1;				
+			}
+			
+			return -2; // -2 QUANDO SE PROCURA E N√ÉO ACHA 
 		}
 	}
 }

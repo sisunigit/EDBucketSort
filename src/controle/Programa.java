@@ -64,12 +64,18 @@ public class Programa {
 				System.out.println("Digite o caracter a ser encontrado: ");
 				caracter = entrada.nextInt();
 				
-				int indice = listaLinearSeq.buscaElemento(caracter);
+				/* Cronometrando o tempo de execução */
+				long tempoInicial4 = System.currentTimeMillis();
+
+				int indice = listaLinearSeq.buscaElemento(caracter); // execução do método
 				
-				System.out.println("Caracter Encontrado: ");
-				
+				long tempoTotal4 = System.currentTimeMillis() - tempoInicial4;		
+				/* Fim do cronômetro */				
+								
 				if (indice > -1) {
-					System.out.println(listaLinearSeq.getLista()[indice]);
+					System.out.println("Caracter Encontrado: ");
+					System.out.println("Valor: " + listaLinearSeq.getLista()[indice] + " | Índice: " + indice);
+					System.out.println("Busca concluida em [" + tempoTotal4 + "] milissegundos");
 				} else if (indice == -2) {
 					System.out.println("Caracter não encontrado.");
 				} else {
@@ -80,20 +86,26 @@ public class Programa {
 			case 4:
 				System.out.println("\n\n*** Busca Binária ***");
 
-//				System.out.println("Digite o caracter a ser encontrado: ");
-//				caracter = entrada.nextInt();
-//				
-//				int indice2 = listaLinearSeq.buscaElemento(caracter);
-//				
-//				System.out.println("Caracter Encontrado: ");
-//				
-//				if (indice2 > -1) {
-//					System.out.println(listaLinearSeq.getLista()[indice2]);
-//				} else if (indice2 == -2) {
-//					System.out.println("Caracter não encontrado.");
-//				} else {
-//					System.out.println("Lista vazia.");
-//				}
+				System.out.println("Digite o caracter a ser encontrado: ");
+				caracter = entrada.nextInt();
+				
+				/* Cronometrando o tempo de execução */
+				long tempoInicial3 = System.currentTimeMillis();
+
+				int indice2 = listaLinearSeq.buscaBinaria(caracter); // execução do método
+				
+				long tempoTotal3 = System.currentTimeMillis() - tempoInicial3;		
+				/* Fim do cronômetro */				
+
+				if (indice2 > -1) {
+					System.out.println("Caracter Encontrado: ");
+					System.out.println("Valor: " + listaLinearSeq.getLista()[indice2] + " | Índice: " + indice2);
+					System.out.println("Busca concluida em [" + tempoTotal3 + "] milissegundos");
+				} else if (indice2 == -2) {
+					System.out.println("Caracter não encontrado.");
+				} else {
+					System.out.println("Lista vazia.");
+				}
 				break;
 				
 			case 5:
