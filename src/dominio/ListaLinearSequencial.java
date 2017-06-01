@@ -61,8 +61,12 @@ public class ListaLinearSequencial {
 		else {
 			int achou = this.buscaElemento(elemento);
 			
+			int delUltima = this.ultimaPos;
+			
 			if (achou >= 0)
 				this.lista[achou] = this.lista[ultimaPos--];
+			
+			this.lista[delUltima] = 0;
 			
 			return true;
 		}
